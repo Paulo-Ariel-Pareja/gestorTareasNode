@@ -1,0 +1,1 @@
+Gestor de tareas realizado en Node, Axios y Pug (para capa front) - desarrollo en proceso
