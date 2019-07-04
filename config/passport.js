@@ -13,7 +13,8 @@ passport.use(
             try {
                 const usuario = await Usuarios.findOne({
                     where: {
-                        email
+                        email,
+                        activo: 1
                     }
                 })
                 if (!usuario.verificarPassword(password)) {
@@ -21,10 +22,8 @@ passport.use(
                         message: 'Correo y/o contraseña incorrectos'
                     });
                 }
-                console.log('usuario y contraseña estan ok');
                 return done(null, usuario)
             } catch (error) {
-                console.log(error);
                 return done(null, false, {
                     message: 'Correo y/o contraseña incorrectos'
                 });

@@ -24,9 +24,7 @@ exports.formularioProyecto = async (req, res) => {
 exports.nuevoProyecto = async (req, res) => {
     const usuarioId = res.locals.usuario.id;
     const proyectos = await Proyectos.findAll({where: { usuarioId }});
-    // validacion
     const { nombre } = req.body;
-    console.log(nombre);
     let errores = [];
     if (!nombre) {
         errores.push({ 'texto': 'Agregar un nombre de proyecto' });
@@ -61,9 +59,6 @@ exports.proyectoPorUrl = async (req, res, next) => {
         where: {
             proyectoId: proyecto.id
         },
-        /*         include: [{
-                    Proyectos
-                }] */
     });
 
     if (!proyecto) return next();

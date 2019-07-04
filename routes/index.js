@@ -55,12 +55,14 @@ module.exports = function () {
 
         router.get('/crear-cuenta', usuariosControllers.formCrearCuenta);
         router.post('/crear-cuenta', usuariosControllers.crearCuenta);
+        router.get('/confirmar/:correo', usuariosControllers.confirmarCuenta);
         router.get('/iniciar-sesion', usuariosControllers.formIniciarSesion);
         router.post('/iniciar-sesion', authController.autenticarUsuario);
         router.get('/cerrar-sesion', authController.cerrarSesion);
         router.get('/reestablecer', usuariosControllers.formRestablecerPassword);
         router.post('/reestablecer', authController.enviarToken);
-
+        router.get('/reestablecer/:token', authController.validarToken);
+        router.post('/reestablecer/:token', authController.resetPassword);
         return router;
 }
 
