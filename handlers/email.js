@@ -24,12 +24,12 @@ const emailConfig = require('./../config/email');
     
     
     var mailer=nodemailer.createTransport({
-        host: "smtp.mailtrap.io",
-        port: 465,
+        host: emailConfig.host,
+        port: emailConfig.port,
         secure: false,
         auth: {
-            user: "540dc7c139be40",
-            pass: "d990ce4f11f1c0"
+            user: emailConfig.auth.user,
+            pass: emailConfig.auth.pass
         },
         tls:{
             rejectUnauthorized:false
