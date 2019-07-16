@@ -28,7 +28,7 @@ module.exports = function () {
                 authController.usuarioAutenticado, 
                 proyectosControllers.proyectoPorUrl);
 
-        router.get('/proyecto/editar/:id', 
+        router.get('/proyecto/editar/:url', 
                 authController.usuarioAutenticado, 
                 proyectosControllers.formularioEditar);
 
